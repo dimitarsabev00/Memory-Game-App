@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { cardImages } from "./utils/constants";
 import "./App.scss";
 import { Card } from "./Types";
@@ -22,6 +22,25 @@ const App: React.FC = () => {
   const handleChoiceCard = (card: Card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
+
+  const resetTurn = () => {
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns((prevTurns) => prevTurns + 1);
+  };
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log("those cards match");
+        resetTurn();
+      } else {
+        console.log("those cards not match");
+
+        resetTurn();
+      }
+    }
+  }, [choiceOne, choiceTwo]);
+
   return (
     <div className="container-app">
       <h1>Memory Game App</h1>
