@@ -5,12 +5,17 @@ import { Card } from "../../Types";
 type SingleCardProps = {
   card: Card;
   handleChoiceCard: (card: Card) => void;
+  flipped: boolean;
 };
 
-const SingleCard: React.FC<SingleCardProps> = ({ card, handleChoiceCard }) => {
+const SingleCard: React.FC<SingleCardProps> = ({
+  card,
+  handleChoiceCard,
+  flipped,
+}) => {
   return (
     <div className="card">
-      <div>
+      <div className={flipped ? "flipped-card" : ""}>
         <img className="front-card" src={card.src} alt="card front" />
         <img
           className="back-card"

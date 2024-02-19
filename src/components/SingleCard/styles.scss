@@ -1,9 +1,18 @@
 .card {
-    position: relative;
-    img {
-        width: 100%;
-        display: block;
-        border: 2px solid #fff;
-        border-radius: 6px;
+  position: relative;
+  .front-card {
+    transform: rotateY(90deg);
+    position: absolute;
+  }
+  img {
+    width: 100%;
+    display: block;
+    border: 2px solid #fff;
+    border-radius: 6px;
+  }
+  .flipped-card {
+    .front-card {
+      transform: rotateY(0deg);
     }
+  }
 }

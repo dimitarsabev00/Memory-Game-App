@@ -42,7 +42,9 @@ const App: React.FC = () => {
         });
         resetTurn();
       } else {
-        resetTurn();
+        setTimeout(() => {
+          resetTurn();
+        }, 1000);
       }
     }
   }, [choiceOne, choiceTwo]);
@@ -58,6 +60,7 @@ const App: React.FC = () => {
             key={card.id}
             card={card}
             handleChoiceCard={handleChoiceCard}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
           />
         ))}
       </div>
