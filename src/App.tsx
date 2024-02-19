@@ -69,6 +69,7 @@ const App: React.FC = () => {
           />
         ))}
       </div>
+      <p>Turns: {turns}</p>
     </div>
   );
 };
