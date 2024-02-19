@@ -22,3 +22,15 @@
     grid-gap: 20px;
   }
 }
+
+@media only screen and (max-width: 440px) {
+  .container-app {
+    padding: 0 1rem;
+    h1 {
+      font-size: 30px;
+    }
+    .cards-container {
+      justify-items: center;
+    }
+  }
+}
