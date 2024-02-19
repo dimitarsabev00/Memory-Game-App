@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { cardImages } from "./utils/constants";
-import "./App.css";
-interface Card {
-  id: number;
-  src: string;
-}
+import "./App.scss";
+import { Card } from "./Types";
+import { SingleCard } from "./components";
+
 const App: React.FC = () => {
   const [cards, setCards] = useState<Card[]>([]);
   const [turns, setTurns] = useState(0);
@@ -18,9 +17,15 @@ const App: React.FC = () => {
     setTurns(0);
   };
   return (
-    <div className="App">
+    <div className="container-app">
       <h1>Memory Game App</h1>
       <button onClick={handleShuffleCards}>New Game</button>
+
+      <div className="cards-container">
+        {cards.map((card) => (
+          <SingleCard key={card.id} card={card} />
+        ))}
+      </div>
     </div>
   );
 };
