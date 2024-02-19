@@ -4,9 +4,10 @@ import { Card } from "../../Types";
 
 type SingleCardProps = {
   card: Card;
+  handleChoiceCard: (card: Card) => void;
 };
 
-const SingleCard: React.FC<SingleCardProps> = ({ card }) => {
+const SingleCard: React.FC<SingleCardProps> = ({ card, handleChoiceCard }) => {
   return (
     <div className="card">
       <div>
@@ -14,6 +15,9 @@ const SingleCard: React.FC<SingleCardProps> = ({ card }) => {
         <img
           className="back-card"
           src={"../src/assets/images/cover.png"}
+          onClick={() => {
+            handleChoiceCard(card);
+          }}
           alt="card back"
         />
       </div>

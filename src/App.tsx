@@ -7,6 +7,8 @@ import { SingleCard } from "./components";
 const App: React.FC = () => {
   const [cards, setCards] = useState<Card[]>([]);
   const [turns, setTurns] = useState(0);
+  const [choiceOne, setChoiceOne] = useState<Card | null>(null);
+  const [choiceTwo, setChoiceTwo] = useState<Card | null>(null);
 
   const handleShuffleCards = () => {
     const shuffleCards = [...cardImages, ...cardImages]
@@ -16,6 +18,10 @@ const App: React.FC = () => {
     setCards(shuffleCards);
     setTurns(0);
   };
+
+  const handleChoiceCard = (card: Card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
   return (
     <div className="container-app">
       <h1>Memory Game App</h1>
@@ -23,7 +29,11 @@ const App: React.FC = () => {
 
       <div className="cards-container">
         {cards.map((card) => (
-          <SingleCard key={card.id} card={card} />
+          <SingleCard
+            key={card.id}
+            card={card}
+            handleChoiceCard={handleChoiceCard}
+          />
         ))}
       </div>
     </div>
