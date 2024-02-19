@@ -6,12 +6,14 @@ type SingleCardProps = {
   card: Card;
   handleChoiceCard: (card: Card) => void;
   flipped: boolean;
+  disabled: boolean;
 };
 
 const SingleCard: React.FC<SingleCardProps> = ({
   card,
   handleChoiceCard,
   flipped,
+  disabled,
 }) => {
   return (
     <div className="card">
@@ -21,7 +23,7 @@ const SingleCard: React.FC<SingleCardProps> = ({
           className="back-card"
           src={"../src/assets/images/cover.png"}
           onClick={() => {
-            handleChoiceCard(card);
+            if (!disabled) handleChoiceCard(card);
           }}
           alt="card back"
         />

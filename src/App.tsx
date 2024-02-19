@@ -9,6 +9,7 @@ const App: React.FC = () => {
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState<Card | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<Card | null>(null);
+  const [disabledCard, setDisabledCard] = useState<boolean>(false);
 
   const handleShuffleCards = () => {
     const shuffleCards = [...cardImages, ...cardImages]
@@ -27,9 +28,12 @@ const App: React.FC = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
+    setDisabledCard(false);
   };
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabledCard(true);
+
       if (choiceOne.src === choiceTwo.src) {
         setCards((prevCards: Card[]) => {
           return prevCards.map((card) => {
@@ -61,6 +65,7 @@ const App: React.FC = () => {
             card={card}
             handleChoiceCard={handleChoiceCard}
             flipped={card === choiceOne || card === choiceTwo || card.matched}
+            disabled={disabledCard}
           />
         ))}
       </div>
