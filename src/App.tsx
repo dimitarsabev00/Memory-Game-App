@@ -31,6 +31,7 @@ const App: React.FC = () => {
     setDisabledCard(false);
   };
   useEffect(() => {
+    handleShuffleCards();
     if (choiceOne && choiceTwo) {
       setDisabledCard(true);
 
