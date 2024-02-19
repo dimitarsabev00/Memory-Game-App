@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import { Card } from "../../Types";
-
+import CoverImage from "../../assets/images/cover.png";
 type SingleCardProps = {
   card: Card;
   handleChoiceCard: (card: Card) => void;
@@ -21,7 +21,7 @@ const SingleCard: React.FC<SingleCardProps> = ({
         <img className="front-card" src={card.src} alt="card front" />
         <img
           className="back-card"
-          src={"../src/assets/images/cover.png"}
+          src={CoverImage}
           onClick={() => {
             if (!disabled) handleChoiceCard(card);
           }}

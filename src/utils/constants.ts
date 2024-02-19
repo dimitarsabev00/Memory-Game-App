@@ -1,26 +1,32 @@
+import helmet from "../assets/images/helmet-1.png";
+import potion from "../assets/images/potion-1.png";
+import ring from "../assets/images/ring-1.png";
+import scroll from "../assets/images/scroll-1.png";
+import shield from "../assets/images/shield-1.png";
+import sword from "../assets/images/sword-1.png";
 export const cardImages = [
   {
-    src: "../src/assets/images/helmet-1.png",
+    src: helmet,
     matched: false,
   },
   {
-    src: "../src/assets/images/potion-1.png",
+    src: potion,
     matched: false,
   },
   {
-    src: "../src/assets/images/ring-1.png",
+    src: ring,
     matched: false,
   },
   {
-    src: "../src/assets/images/scroll-1.png",
+    src: scroll,
     matched: false,
   },
   {
-    src: "../src/assets/images/shield-1.png",
+    src: shield,
     matched: false,
   },
   {
-    src: "../src/assets/images/sword-1.png",
+    src: sword,
     matched: false,
   },
 ];
